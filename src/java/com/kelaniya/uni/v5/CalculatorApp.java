@@ -1,20 +1,22 @@
-<<<<<<< HEAD
-package java.com.kelaniya.uni.v5;
+package com.kelaniya.uni.v5;
 
-import java.com.kelaniya.uni.v4.UI;
-import java.com.kelaniya.uni.v5.input.inputs;
-import java.com.kelaniya.uni.v5.operation.Operation;
-import java.com.kelaniya.uni.v5.operation.OperationFactory;
-import java.com.kelaniya.uni.v5.repository.numberRepository;
-import java.io.IOException;
+import com.kelaniya.uni.v5.input.Inputs;
+import com.kelaniya.uni.v5.input.InvalidInputException;
+import com.kelaniya.uni.v5.operation.InvalidOperationException;
+import com.kelaniya.uni.v5.operation.Operation;
+import com.kelaniya.uni.v5.operation.OperationFactory;
+import com.kelaniya.uni.v5.repository.NumberRepository;
+import com.kelaniya.uni.v5.repository.NumberRepositoryException;
+import com.kelaniya.uni.v5.ui.UI;
 
 public class CalculatorApp {
 
-    private final inputs inputs;
-    private final numberRepository numberRepository;
+    private final Inputs inputs;
+    private final NumberRepository numberRepository;
     private final OperationFactory operationFactory;
     private final UI ui;
-    public CalculatorApp(inputs inputs, numberRepository numRepository, OperationFactory operationFactory, UI ui, java.com.kelaniya.uni.v5.input.inputs inputs1, java.com.kelaniya.uni.v5.repository.numberRepository numberRepository, OperationFactory operationFactory1, UI ui1) {
+
+    public CalculatorApp(Inputs inputs, NumberRepository numberRepository, OperationFactory operationFactory, UI ui) {
 
         this.inputs = inputs;
         this.numberRepository = numberRepository;
@@ -22,50 +24,23 @@ public class CalculatorApp {
         this.ui = ui;
     }
 
-    public void execute() throws IOException {
+    public void execute() {
 
-        String operator = inputs.getOperator();
-        Double[] numbers = numberRepository.getNumbers();
-        Operation operation=  operationFactory.getInstance(operator);
-        Double result = operation.execute(numbers);
-        ui.showMessage("The result is"+result);
+       try{
+
+           String operator = inputs getOperator();
+           Double[] numbers = numberRepository.getNumbers();
+           Operation operation = operationFactory.getInstance(operator);
+           Double result = operation.execute(numbers);
+           ui.showMessage("The result is" + result);
+
+    }catch(InvalidOperationException | InvalidInputException |NumberRepositoryException e){
+
+        ui.showMessage("Error Occured! " + e.getMessage());
+
+    }
+
 
     }
 
 }
-=======
-package java.com.kelaniya.uni.v5;
-
-import java.com.kelaniya.uni.v4.UI;
-import java.com.kelaniya.uni.v5.input.inputs;
-import java.com.kelaniya.uni.v5.operation.Operation;
-import java.com.kelaniya.uni.v5.operation.OperationFactory;
-import java.com.kelaniya.uni.v5.repository.numberRepository;
-import java.io.IOException;
-
-public class CalculatorApp {
-
-    private final inputs inputs;
-    private final numberRepository numberRepository;
-    private final OperationFactory operationFactory;
-    private final UI ui;
-    public CalculatorApp(inputs inputs, numberRepository numRepository, OperationFactory operationFactory, UI ui, java.com.kelaniya.uni.v5.input.inputs inputs1, java.com.kelaniya.uni.v5.repository.numberRepository numberRepository, OperationFactory operationFactory1, UI ui1) {
-
-        this.inputs = inputs;
-        this.numberRepository = numberRepository;
-        this.operationFactory = operationFactory;
-        this.ui = ui;
-    }
-
-    public void execute() throws IOException {
-
-        String operator = inputs.getOperator();
-        Double[] numbers = numberRepository.getNumbers();
-        Operation operation=  operationFactory.getInstance(operator);
-        Double result = operation.execute(numbers);
-        ui.showMessage("The result is"+result);
-
-    }
-
-}
->>>>>>> 59c9e61ad90e8ee88233248d694dbcf9b23cfc8d

@@ -1,40 +1,27 @@
-<<<<<<< HEAD
-package java.com.kelaniya.uni.v5.repository;
-
+package com.kelaniya.uni.v5.repository;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-public class FileNumberRepository implements numberRepository{
 
-    public Double[] getNumbers() throws IOException {
+public class FileNumberRepository implements com.kelaniya.uni.v5.repository.NumberRepository {
 
-        //Read the numbers text file
-        List<String> numbersStrs= Files.readAllLines(Paths.get("C:\\Users\\user\\Desktop\\Software construction git repo\\calculator\\src\\java\\com\\kelaniya\\uni\\numbers.txt"));
-        double number1=Integer.parseInt(numbersStrs.get(0));
-        double number2=Integer.parseInt(numbersStrs.get(1));
-        return new Double[] {number1,number2};
+    public Double[] getNumbers() throws NumberRepositoryException {
 
+        List<String> numbersStrs = null;
+        try {
+
+                 numbersStrs=Files.readAllLines(
+                         Paths.get("User/desktop//Calculator/numbers.txt")
+                 );
+        } catch (IOException e) {
+            throw new NumberRepositoryException(e,"Couldn't read the text file");
+        }
+
+        double number1 = Double.parseDouble(numbersStrs.get(0));
+        double number2 = Double.parseDouble(numbersStrs.get(1));
+
+        return new Double[]{number1, number2};
     }
-=======
-package java.com.kelaniya.uni.v5.repository;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-
-public class FileNumberRepository implements numberRepository{
-
-    public Double[] getNumbers() throws IOException {
-
-        //Read the numbers text file
-        List<String> numbersStrs= Files.readAllLines(Paths.get("C:\\Users\\user\\Desktop\\Software construction git repo\\calculator\\src\\java\\com\\kelaniya\\uni\\numbers.txt"));
-        double number1=Integer.parseInt(numbersStrs.get(0));
-        double number2=Integer.parseInt(numbersStrs.get(1));
-        return new Double[] {number1,number2};
-
-    }
->>>>>>> 59c9e61ad90e8ee88233248d694dbcf9b23cfc8d
 }
