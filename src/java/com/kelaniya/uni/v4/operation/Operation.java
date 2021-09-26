@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package java.com.kelaniya.uni.v4.operation;
 
 public interface Operation {
@@ -6,3 +7,13 @@ public interface Operation {
 
 
 }
+=======
+package java.com.kelaniya.uni.v4.operation;
+
+public interface Operation {
+
+    Double execute(Double[] numbers);
+
+
+}
+>>>>>>> 59c9e61ad90e8ee88233248d694dbcf9b23cfc8d
