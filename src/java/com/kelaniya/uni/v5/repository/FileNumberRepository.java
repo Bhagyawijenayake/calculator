@@ -12,9 +12,9 @@ public class FileNumberRepository implements com.kelaniya.uni.v5.repository.Numb
         List<String> numbersStrs = null;
         try {
 
-                 numbersStrs=Files.readAllLines(
-                         Paths.get("User/desktop//Calculator/numbers.txt")
-                 );
+            numbersStrs=Files.readAllLines(
+                    Paths.get("User/desktop//Calculator/numbers.txt")
+            );
         } catch (IOException e) {
             throw new NumberRepositoryException(e,"Couldn't read the text file");
         }

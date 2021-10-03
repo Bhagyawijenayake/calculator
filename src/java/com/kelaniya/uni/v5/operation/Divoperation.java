@@ -1,23 +1,15 @@
-<<<<<<< HEAD
-package java.com.kelaniya.uni.v5.operation;
+package com.kelaniya.uni.v5.operation;
 
-public class Divoperation implements Operation {
+public class DivOperation implements Operation {
 
-    public Double execute(Double[] numbers){
+    public Double execute(Double[] numbers) throws InvalidOperationException {
 
+
+        if (numbers[1] == 0) {
+            throw new InvalidOperationException("Do not divide by zero");
+        }
         return numbers[0] / numbers[1];
 
     }
+
 }
-=======
-package java.com.kelaniya.uni.v5.operation;
-
-public class Divoperation implements Operation {
-
-    public Double execute(Double[] numbers){
-
-        return numbers[0] / numbers[1];
-
-    }
-}
->>>>>>> 59c9e61ad90e8ee88233248d694dbcf9b23cfc8d

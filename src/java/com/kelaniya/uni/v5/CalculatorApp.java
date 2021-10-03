@@ -26,19 +26,19 @@ public class CalculatorApp {
 
     public void execute() {
 
-       try{
+        try{
 
-           String operator = inputs getOperator();
-           Double[] numbers = numberRepository.getNumbers();
-           Operation operation = operationFactory.getInstance(operator);
-           Double result = operation.execute(numbers);
-           ui.showMessage("The result is" + result);
+            String operator = inputs getOperator();
+            Double[] numbers = numberRepository.getNumbers();
+            Operation operation = operationFactory.getInstance(operator);
+            Double result = operation.execute(numbers);
+            ui.showMessage("The result is" + result);
 
-    }catch(InvalidOperationException | InvalidInputException |NumberRepositoryException e){
+        }catch(InvalidOperationException | InvalidInputException |NumberRepositoryException e){
 
-        ui.showMessage("Error Occured! " + e.getMessage());
+            ui.showMessage("Error Occured! " + e.getMessage());
 
-    }
+        }
 
 
     }

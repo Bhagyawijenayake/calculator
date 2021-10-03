@@ -1,59 +1,25 @@
-<<<<<<< HEAD
-package java.com.kelaniya.uni.v5;
+package com.kelaniya.uni.v5;
 
-import java.com.kelaniya.uni.v4.UI;
-import java.com.kelaniya.uni.v5.input.CommandLineInputs;
-import java.com.kelaniya.uni.v5.input.inputs;
-import java.com.kelaniya.uni.v5.operation.OperationFactory;
-import java.com.kelaniya.uni.v5.repository.FileNumberRepository;
-import java.com.kelaniya.uni.v5.repository.numberRepository;
-import java.com.kelaniya.uni.v5.ui.CmdLineUI;
+import com.kelaniya.uni.v5.input.CommandLineInputs;
+import com.kelaniya.uni.v5.operation.OperationFactory;
+import com.kelaniya.uni.v5.repository.FileNumberRepository;
+import com.kelaniya.uni.v5.repository.NumberRepository;
+
+
 import java.io.IOException;
 
+//Main class is the coordinator now...
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        inputs inputs = new CommandLineInputs(args);
-        numberRepository numRepository = new FileNumberRepository();
-        OperationFactory operationFactory=new OperationFactory();
-        UI ui = new CmdLineUI();
-       CalculatorApp app=new CalculatorApp(inputs,numRepository,operationFactory,ui, , numberRepository, operationFactory1, ui1);
+        com.kelaniya.uni.V5.input.Inputs inputs = new CommandLineInputs(args);
+        NumberRepository numberRepository = (NumberRepository) new FileNumberRepository();
+        OperationFactory operationFactory = new OperationFactory();
+        UI ui = new com.kelaniya.uni.V5.ui.CmdLineUI();
+        CalculatorApp app = new CalculatorApp(inputs, numberRepository, operationFactory, ui);
         app.execute();
 
     }
 
-    }
-
-
-
-=======
-package java.com.kelaniya.uni.v5;
-
-import java.com.kelaniya.uni.v4.UI;
-import java.com.kelaniya.uni.v5.input.CommandLineInputs;
-import java.com.kelaniya.uni.v5.input.inputs;
-import java.com.kelaniya.uni.v5.operation.OperationFactory;
-import java.com.kelaniya.uni.v5.repository.FileNumberRepository;
-import java.com.kelaniya.uni.v5.repository.numberRepository;
-import java.com.kelaniya.uni.v5.ui.CmdLineUI;
-import java.io.IOException;
-
-public class Main {
-
-    public static void main(String[] args) throws IOException {
-
-        inputs inputs = new CommandLineInputs(args);
-        numberRepository numRepository = new FileNumberRepository();
-        OperationFactory operationFactory=new OperationFactory();
-        UI ui = new CmdLineUI();
-       CalculatorApp app=new CalculatorApp(inputs,numRepository,operationFactory,ui, , numberRepository, operationFactory1, ui1);
-        app.execute();
-
-    }
-
-    }
-
-
-
->>>>>>> 59c9e61ad90e8ee88233248d694dbcf9b23cfc8d
+}

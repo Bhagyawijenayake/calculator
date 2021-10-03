@@ -5,5 +5,5 @@ public interface NumberRepository {
 
     Double[] getNumbers throws NumberRepository();
 
-    }
+}
 }
